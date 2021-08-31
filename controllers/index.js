@@ -1,5 +1,5 @@
 const express = require('express');
-const Response = require('../models/ResponseModel');
+const Response = require('../models/responseModel');
 const router = express.Router();
 
 router.get('/response', async (req, res, next) => {
