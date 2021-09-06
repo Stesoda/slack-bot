@@ -31,7 +31,7 @@ const ResponseController = require('./controllers');
 receiver.router.get('/api/response', ResponseController);
 
 // Bot Event Listeners
-bot.message("Hello", async ({ context, event, client }) => {
+bot.message("hello", async ({ context, event, client }) => {
     try {
         await client.chat.postMessage({
          token: context.botToken,
