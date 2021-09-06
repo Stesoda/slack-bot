@@ -343,7 +343,6 @@ const thanksBlock = [
     }
 ];
 
-
 module.exports = { 
     welcomeMessageBlock,
     homeBlock,
