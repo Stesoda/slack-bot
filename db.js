@@ -10,9 +10,7 @@ class Database {
     connect() {
         mongoose.connect(process.env.DB_STRING, {
             useNewUrlParser: true,
-            useUnifiedTopology: true,
-            // useFindAndModify: false,
-            // useCreateIndex: true
+            useUnifiedTopology: true
         }).then(() => {
                 console.log("Database Connected")
         }).catch((err) => {

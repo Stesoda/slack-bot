@@ -1,4 +1,3 @@
-// Require the Bolt package (github.com/slackapi/bolt)
 const { App, ExpressReceiver } = require('@slack/bolt');
 require('dotenv').config()
 // Database Connection
@@ -8,17 +7,16 @@ const PORT = process.env.PORT || 3000;
 
 // Slack Block Kit Templates
 const { 
-  welcomeMessageBlock,
-  homeBlock,
-  appointmentBlock,
-  hobbiesBlock,
-  numbersBlock,
-  thanksBlock
-} = require('./utils/blocks');
+    WelcomeMessageBlock, 
+    HomeBlock,
+    AppointmentBlock,
+    HobbiesBlock,
+    QuestionBlock,
+    ThanksBlock
+} = require('./utils/Blocks');
 
 // Create a Bolt Receiver
 const receiver = new ExpressReceiver({ signingSecret: process.env.SLACK_SIGNING_SECRET });
-
 
 // Create the Bolt App, using the receiver
 const bot = new App({
@@ -26,20 +24,20 @@ const bot = new App({
   receiver
 });
 
-const Response = require('./models/responseModel');
-const responseController = require('./controllers/index.js');
+const Response = require('./models/ResponseModel');
+const ResponseController = require('./controllers');
 
 // USER response API
-receiver.router.get('/api/response', responseController);
+receiver.router.get('/api/response', ResponseController);
 
 // Bot Event Listeners
-bot.message("hello", async ({ context, event, client }) => {
+bot.message("Hello", async ({ context, event, client }) => {
     try {
         await client.chat.postMessage({
          token: context.botToken,
          // Channel to send message to
          channel: event.channel,
-         blocks: welcomeMessageBlock,
+         blocks: WelcomeMessageBlock,
          text: "Slack Bot"
        });
      }
@@ -54,7 +52,7 @@ bot.event('app_mention', async ({ context, event, client }) => {
          token: context.botToken,
          // Channel to send message to
          channel: event.channel,
-         blocks: welcomeMessageBlock,
+         blocks: WelcomeMessageBlock,
          text: "Slack Bot"
        });
      }
@@ -78,7 +76,7 @@ bot.event('app_home_opened', async ({ event, client }) => {
           callback_id: 'home_view',
   
           /* body of the view */
-          blocks: homeBlock
+          blocks: HomeBlock
         }
       });
     }
@@ -98,7 +96,7 @@ bot.command('/bot', async ({ ack, payload, context }) => {
         // Channel to send message to
         channel: payload.channel_id,
         // Include a button in the message (or whatever blocks you want!)
-        blocks: welcomeMessageBlock,
+        blocks: WelcomeMessageBlock,
         text: "Slack Bot"
       });
     }
@@ -127,7 +125,7 @@ bot.action('response1', async ({ ack, body, context }) => {
         ts: body.message.ts,
         // Channel of message
         channel: body.channel.id,
-        blocks: appointmentBlock,
+        blocks: AppointmentBlock,
         text: reply.id
       });
     }
@@ -163,7 +161,7 @@ bot.action('time-day', async ({ ack, body, context }) => {
             ts: body.message.ts,
             // Channel of message
             channel: body.channel.id,
-            "blocks": hobbiesBlock,
+            "blocks": HobbiesBlock,
             text: body.message.text
         })
     }
@@ -199,7 +197,7 @@ bot.action('hobbies', async ({ ack, body, context }) => {
             ts: body.message.ts,
             // Channel of message
             channel: body.channel.id,
-            "blocks": numbersBlock,
+            "blocks": QuestionBlock,
             text: body.message.text
       })
     }
@@ -229,7 +227,7 @@ bot.action('plain_text_input-action', async ({ ack, body, context }) => {
             ts: body.message.ts,
             // Channel of message
             channel: body.channel.id,
-            blocks: thanksBlock,
+            blocks: ThanksBlock,
             text: "Slack Bot"
       })
     }

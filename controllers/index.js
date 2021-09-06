@@ -1,21 +1,9 @@
-// const express = require('express');
-// const Response = require('../models/responseModel');
-// const router = express.Router();
+const Response = require('../models/ResponseModel');
 
-// router.get('/response', async (req, res, next) => {
-//     var results = await Response.find({})
-//     .catch(error => console.log(error));;
-//     return res.status(200).send(results)
-// });
-
-// module.exports = router;
-
-const Response = require('../models/responseModel');
-
-const responseController = async (req, res, next) => {
+const ResponseController = async (req, res, next) => {
     var results = await Response.find({})
     .catch(error => console.log(error));;
     return res.status(200).send(results)
 };
 
-module.exports = responseController;
+module.exports = ResponseController;

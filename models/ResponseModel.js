@@ -10,5 +10,5 @@ const UserResponseSchema = new mongoose.Schema({
     response: [ResponseSchema]
 });
 
-const Response = mongoose.model('Response', UserResponseSchema);
+var Response = mongoose.model('Response', UserResponseSchema);
 module.exports = Response;
