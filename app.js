@@ -13,7 +13,7 @@ const {
     HobbiesBlock,
     QuestionBlock,
     ThanksBlock
-} = require('./utils/Blocks');
+} = require('./utils/blocks');
 
 // Create a Bolt Receiver
 const receiver = new ExpressReceiver({ signingSecret: process.env.SLACK_SIGNING_SECRET });
