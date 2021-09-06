@@ -1,4 +1,4 @@
-const welcomeMessageBlock = [
+const WelcomeMessageBlock = [
     {
         "type": "section",
         "text": {
@@ -43,7 +43,7 @@ const welcomeMessageBlock = [
     }
 ];
 
-const homeBlock = [
+const HomeBlock = [
     {
       "type": "section",
       "text": {
@@ -63,7 +63,7 @@ const homeBlock = [
     }
 ];
 
-const appointmentBlock = [
+const AppointmentBlock = [
     {
         "type": "section",
         "text": {
@@ -261,7 +261,7 @@ const appointmentBlock = [
     }
 ];
 
-const hobbiesBlock = [
+const HobbiesBlock = [
     {
         "type": "section",
         "block_id": "section678",
@@ -317,7 +317,7 @@ const hobbiesBlock = [
     }
 ];
 
-const numbersBlock = [
+const QuestionBlock = [
     {
         "dispatch_action": true,
         "type": "input",
@@ -333,7 +333,7 @@ const numbersBlock = [
     }
 ];
 
-const thanksBlock = [
+const ThanksBlock = [
     {
         "type": "section",
         "text": {
@@ -343,11 +343,12 @@ const thanksBlock = [
     }
 ];
 
+
 module.exports = { 
-    welcomeMessageBlock,
-    homeBlock,
-    appointmentBlock,
-    hobbiesBlock,
-    numbersBlock,
-    thanksBlock
+    WelcomeMessageBlock,
+    HomeBlock,
+    AppointmentBlock,
+    HobbiesBlock,
+    QuestionBlock,
+    ThanksBlock
 };
