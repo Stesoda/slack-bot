@@ -61,7 +61,6 @@ bot.event('app_mention', async ({ context, event, client }) => {
      }
 });
 
-  
 bot.event('app_home_opened', async ({ event, client }) => {
     try {
       /* view.publish is the method that your bot uses to push a view to the Home tab */
