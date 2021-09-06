@@ -27,10 +27,10 @@ const bot = new App({
 });
 
 const Response = require('./models/responseModel');
-const ResponseController = require('./controllers');
+const responseController = require('./controllers/index.js');
 
 // USER response API
-receiver.router.get('/api/response', ResponseController);
+receiver.router.get('/api/response', responseController);
 
 // Bot Event Listeners
 bot.message("hello", async ({ context, event, client }) => {

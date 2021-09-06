@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "author": "Sophia Daniels",
   "license": "ISC",
@@ -12,8 +12,11 @@
     "@slack/bolt": "^3.6.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "mongodb": "^4.1.1",
     "mongoose": "^6.0.2",
     "nodemon": "^2.0.12"
+  },
+  "engines": {
+    "node": ">=8.0.0 <15"
   }
+  
 }

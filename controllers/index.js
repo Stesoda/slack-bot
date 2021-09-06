@@ -1,11 +1,21 @@
-const express = require('express');
-const Response = require('../models/responseModel');
-const router = express.Router();
+// const express = require('express');
+// const Response = require('../models/responseModel');
+// const router = express.Router();
 
-router.get('/response', async (req, res, next) => {
+// router.get('/response', async (req, res, next) => {
+//     var results = await Response.find({})
+//     .catch(error => console.log(error));;
+//     return res.status(200).send(results)
+// });
+
+// module.exports = router;
+
+const Response = require('../models/responseModel');
+
+const responseController = async (req, res, next) => {
     var results = await Response.find({})
     .catch(error => console.log(error));;
     return res.status(200).send(results)
-});
+};
 
-module.exports = router;
+module.exports = responseController;
